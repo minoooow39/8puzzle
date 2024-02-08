@@ -22,9 +22,9 @@ namespace Puzzle
 
 		for (auto i : this->initial)
 		{
-			if (i > 9 || i < 0)
+			if (i > 8 || i < 0)
 			{
-				std::cout << "Invalid inputs!\n";
+				std::cout << "Invalid tiles, 0-9 tiles only (0 representing blank)!\n";
 				isInvalid = true;
 				return;
 			}
