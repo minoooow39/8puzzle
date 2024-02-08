@@ -53,18 +53,17 @@ namespace Puzzle
 		std::vector<std::array<int, 9>> repeats{};
 		std::array<int, 9> childBoard{};
 
-		bool IsSolvable();
-		std::shared_ptr<Node> NewNode(std::array<int, 9> board, int index, int newIndex, int g, std::shared_ptr<Node> parent);
-		int CalculateHeuristic(std::array<int, 9> board);
-		inline int CalculateTotalCost(int g, int h);
-		inline bool IsValidMovement(int index);
+		bool IsSolvable() const;
+		std::shared_ptr<Node> NewNode(const std::array<int, 9>& board, int index, int newIndex, int g, std::shared_ptr<Node> parent) const;
+		int CalculateHeuristic(const std::array<int, 9>& board) const;
+		inline int CalculateTotalCost(int g, int h) const;
+		inline bool IsValidMovement(int index) const;
 
-		void PrintPath(std::shared_ptr<Node> board);
-		void PrintBoard(std::array<int, 9> board);
+		void PrintPath(const std::shared_ptr<Node>& board) const;
+		void PrintBoard(const std::array<int, 9>& board) const;
 
 	public:
-		Puzzle(std::array<int,9> initial, Heuristic heuristic, GoalState goalState);
+		Puzzle(std::array<int, 9> initial, Heuristic heuristic, GoalState goalState);
 		void SolveBoard();
 	};
 }
-
