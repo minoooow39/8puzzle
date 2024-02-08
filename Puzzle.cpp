@@ -45,70 +45,22 @@ namespace Puzzle
 
 		switch (goalState)
 		{
-		case GoalState::Clockwise:
-		{
-			goal[0] = 1;
-			goal[1] = 2;
-			goal[2] = 3;
-			goal[3] = 8;
-			goal[4] = 0;
-			goal[5] = 4;
-			goal[6] = 7;
-			goal[7] = 6;
-			goal[8] = 5;
+			case GoalState::Clockwise:
+			{
+				goal = { 1, 2, 3, 8, 0, 4, 7, 6, 8 };
+				r = { 0,0,0,1,2,2,2,1 };
+				c = { 0,1,2,2,2,1,0,0 };
 
-			r[0] = 0;
-			r[1] = 0;
-			r[2] = 0;
-			r[3] = 1;
-			r[4] = 2;
-			r[5] = 2;
-			r[6] = 2;
-			r[7] = 1;
+				break;
+			}
+			case GoalState::Ordered:
+			{
+				goal = { 1,2,3,4,5,6,7,8,0 };
+				r = { 0, 0, 0, 1, 1, 1, 2, 2 };
+				c = { 0, 1, 2, 0, 1, 2, 0, 1 };
 
-			c[0] = 0;
-			c[1] = 1;
-			c[2] = 2;
-			c[3] = 2;
-			c[4] = 2;
-			c[5] = 1;
-			c[6] = 0;
-			c[7] = 0;
-
-			break;
-		}
-		case GoalState::Ordered:
-		{
-			goal[0] = 1;
-			goal[1] = 2;
-			goal[2] = 3;
-			goal[3] = 4;
-			goal[4] = 5;
-			goal[5] = 6;
-			goal[6] = 7;
-			goal[7] = 8;
-			goal[8] = 0;
-
-			r[0] = 0;
-			r[1] = 0;
-			r[2] = 0;
-			r[3] = 1;
-			r[4] = 1;
-			r[5] = 1;
-			r[6] = 2;
-			r[7] = 2;
-
-			c[0] = 0;
-			c[1] = 1;
-			c[2] = 2;
-			c[3] = 0;
-			c[4] = 1;
-			c[5] = 2;
-			c[6] = 0;
-			c[7] = 1;
-
-			break;
-		}
+				break;
+			}
 		}
 	}
 
