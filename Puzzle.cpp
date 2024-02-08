@@ -5,7 +5,7 @@
 
 namespace Puzzle
 {
-	Puzzle::Puzzle(std::array<int, 9> initial, Heuristic heuristic, GoalState goalState) : heuristic(heuristic), goalState(goalState)
+	Puzzle::Puzzle(const std::array<int, 9>& initial, Heuristic heuristic, GoalState goalState) : heuristic(heuristic), goalState(goalState)
 	{
 		this->initial = initial;
 

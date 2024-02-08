@@ -28,6 +28,10 @@ namespace Puzzle
 
 	class Puzzle
 	{
+	public:
+		Puzzle(const std::array<int, 9>& initial, Heuristic heuristic, GoalState goalState);
+
+	private:
 		std::array<int, 9> initial{};
 		std::array<int, 9> goal{};
 
@@ -53,6 +57,7 @@ namespace Puzzle
 		std::vector<std::array<int, 9>> repeats{};
 		std::array<int, 9> childBoard{};
 
+	private:
 		bool IsSolvable() const;
 		std::shared_ptr<Node> NewNode(const std::array<int, 9>& board, int index, int newIndex, int g, std::shared_ptr<Node> parent) const;
 		int CalculateHeuristic(const std::array<int, 9>& board) const;
@@ -63,7 +68,6 @@ namespace Puzzle
 		void PrintBoard(const std::array<int, 9>& board) const;
 
 	public:
-		Puzzle(std::array<int, 9> initial, Heuristic heuristic, GoalState goalState);
 		void SolveBoard();
 	};
 }
