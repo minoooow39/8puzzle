@@ -44,8 +44,8 @@ namespace Puzzle
 		std::shared_ptr<Node> final{};
 		std::array<int, 9> goal{};
 
-		std::array<int, 9> horizontalDiff{};
-		std::array<int, 9> verticalDiff{};
+		std::array<int, 9> row{};
+		std::array<int, 9> col{};
 
 		Heuristic heuristic{Heuristic::ManhattanDistance};
 		GoalState goalState{GoalState::Clockwise};

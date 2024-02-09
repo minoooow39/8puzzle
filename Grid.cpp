@@ -48,16 +48,16 @@ namespace Puzzle
 		case GoalState::Clockwise:
 		{
 			goal = { 1, 2, 3, 8, 0, 4, 7, 6, 8 };
-			horizontalDiff = { 0, 0, 0, 1, 2, 2, 2, 1 };
-			verticalDiff = { 0, 1, 2, 2, 2, 1, 0, 0 };
+			row = { 0, 0, 0, 1, 2, 2, 2, 1 };
+			col = { 0, 1, 2, 2, 2, 1, 0, 0 };
 
 			break;
 		}
 		case GoalState::Ordered:
 		{
 			goal = { 1, 2, 3, 4, 5, 6, 7, 8, 0 };
-			horizontalDiff = { 0, 0, 0, 1, 1, 1, 2, 2 };
-			verticalDiff = { 0, 1, 2, 0, 1, 2, 0, 1 };
+			row = { 0, 0, 0, 1, 1, 1, 2, 2 };
+			col = { 0, 1, 2, 0, 1, 2, 0, 1 };
 
 			break;
 		}
@@ -156,8 +156,8 @@ namespace Puzzle
 			{
 				if (heuristic == Heuristic::ManhattanDistance)
 				{
-					h += std::abs(static_cast<int>(i) / 3 - horizontalDiff[board[i] - 1]); // Horizontal distance
-					h += std::abs(static_cast<int>(i) % 3 - verticalDiff[board[i] - 1]); // Vertical distance
+					h += std::abs(static_cast<int>(i) / 3 - row[board[i] - 1]); // Horizontal distance
+					h += std::abs(static_cast<int>(i) % 3 - col[board[i] - 1]); // Vertical distance
 				}
 				else if (heuristic == Heuristic::HammingDistance)
 				{
