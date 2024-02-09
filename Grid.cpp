@@ -48,8 +48,8 @@ namespace Puzzle
 		case GoalState::Clockwise:
 		{
 			goal = { 1, 2, 3, 8, 0, 4, 7, 6, 8 };
-			row = { 0, 0, 0, 1, 2, 2, 2, 1 };
-			col = { 0, 1, 2, 2, 2, 1, 0, 0 };
+			row = { 0, 0, 0, 1, 2, 2, 2, 1 }; // i corresponds to values in the goal
+			col = { 0, 1, 2, 2, 2, 1, 0, 0 }; // i corresponds to values in the goal
 
 			break;
 		}
