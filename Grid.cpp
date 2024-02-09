@@ -56,8 +56,8 @@ namespace Puzzle
 		case GoalState::Ordered:
 		{
 			goal = { 1, 2, 3, 4, 5, 6, 7, 8, 0 };
-			row = { 0, 0, 0, 1, 1, 1, 2, 2 };
-			col = { 0, 1, 2, 0, 1, 2, 0, 1 };
+			row = { 0, 0, 0, 1, 1, 1, 2, 2 }; // i corresponds to values in the goal
+			col = { 0, 1, 2, 0, 1, 2, 0, 1 }; // i corresponds to values in the goal
 
 			break;
 		}
