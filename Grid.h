@@ -8,8 +8,8 @@ namespace Puzzle
 {
 	enum Heuristic
 	{
-		ManhattanDistance,
-		HammingDistance
+		ManhattanDistance, // horizontal distance + vertical distance
+		HammingDistance // misplaced tiles
 	};
 
 	enum GoalState
@@ -24,19 +24,6 @@ namespace Puzzle
 		int index;
 		int g, h, f;
 		std::shared_ptr<Node> parent;
-	};
-
-	class Puzzle
-	{
-	public:
-		Puzzle(const std::array<int, 9>& initial, Heuristic heuristic, GoalState goalState);
-
-	private:
-		std::array<int, 9> initial{};
-		std::array<int, 9> goal{};
-
-		std::array<int, 9> r{};
-		std::array<int, 9> c{};
 
 		struct Comparator
 		{
@@ -45,21 +32,31 @@ namespace Puzzle
 				return (lhs->f) > (rhs->f);
 			}
 		};
+	};
 
-		Heuristic heuristic;
-		GoalState goalState;
+	class Grid
+	{
+	public:
+		Grid(const std::array<int, 9> board, Heuristic heuristic, GoalState goalState);
+
+	private:
+		std::shared_ptr<std::array<int, 9>> initial{};
+		std::shared_ptr<Node> final{};
+		std::array<int, 9> goal{};
+
+		std::array<int, 9> horizontalDiff{};
+		std::array<int, 9> verticalDiff{};
+
+		Heuristic heuristic{Heuristic::ManhattanDistance};
+		GoalState goalState{GoalState::Clockwise};
 
 		int blankIndex{};
 
 		bool isInvalid{ false };
 
-		std::priority_queue<std::shared_ptr<Node>, std::vector<std::shared_ptr<Node>>, Comparator> minPQ{};
-		std::vector<std::array<int, 9>> repeats{};
-		std::array<int, 9> childBoard{};
-
 	private:
 		bool IsSolvable() const;
-		std::shared_ptr<Node> NewNode(const std::array<int, 9>& board, int index, int newIndex, int g, std::shared_ptr<Node> parent) const;
+		std::shared_ptr<Node> CreateNode(const std::array<int, 9>& board, int index, int newIndex, int g, std::shared_ptr<Node> parent) const;
 		int CalculateHeuristic(const std::array<int, 9>& board) const;
 		inline int CalculateTotalCost(int g, int h) const;
 		inline bool IsValidMovement(int index) const;
@@ -69,5 +66,6 @@ namespace Puzzle
 
 	public:
 		void SolveBoard();
+		void Print() const;
 	};
 }

@@ -1,4 +1,4 @@
-#include "Puzzle.h"
+#include "Grid.h"
 #include <array>
 
 int main()
@@ -9,7 +9,8 @@ int main()
 		0, 4, 6,
 		7, 5, 8
 	};
-	Puzzle::Puzzle puzzle = Puzzle::Puzzle(initial, Puzzle::Heuristic::ManhattanDistance, Puzzle::GoalState::Ordered);
+	Puzzle::Grid puzzle = Puzzle::Grid(initial, Puzzle::Heuristic::ManhattanDistance, Puzzle::GoalState::Ordered);
 	puzzle.SolveBoard();
+	puzzle.Print();
 	return 0;
 }
