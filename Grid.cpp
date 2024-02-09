@@ -183,6 +183,8 @@ namespace Puzzle
 
 	void Grid::Print() const
 	{
+		if (isInvalid)
+			return;
 		PrintPath(final);
 		std::cout << "Number of steps taken: " << final->g << "\n";
 	}
@@ -207,8 +209,6 @@ namespace Puzzle
 
 	void Grid::PrintBoard(const std::array<int, 9>& board) const
 	{
-		if (isInvalid)
-			return;
 		for (size_t i{ 0 }; i < 9; ++i)
 		{
 			if ((i % 3 == 0) && i != 0)
